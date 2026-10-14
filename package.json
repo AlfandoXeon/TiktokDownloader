@@ -1,0 +1,31 @@
+{
+  "name": "tiktok-downloader-mvc-oop",
+  "version": "1.0.0",
+  "description": "TikTok Video Downloader Without Watermark built with Node.js, Express, MVC, and OOP Architecture",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "dev": "node --watch src/server.js"
+  },
+  "keywords": [
+    "tiktok",
+    "downloader",
+    "no-watermark",
+    "mvc",
+    "oop",
+    "nodejs",
+    "express"
+  ],
+  "author": "AlfandoXeon",
+  "license": "MIT",
+  "dependencies": {
+    "@tobyg74/tiktok-api-dl": "^1.3.7",
+    "archiver": "^8.0.0",
+    "axios": "^1.7.7",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "express": "^4.21.0",
+    "html-minifier-terser": "^7.2.0"
+  }
+}
