@@ -18,10 +18,8 @@
   <!-- Canonical URL -->
   <link rel="canonical" href="<%= siteUrl %>/" />
 
-  <!-- Google Site Verification (Optional: Defined via GOOGLE_SITE_VERIFICATION env) -->
-  <% if (typeof googleSiteVerification !== 'undefined' && googleSiteVerification) { %>
-  <meta name="google-site-verification" content="<%= googleSiteVerification %>" />
-  <% } %>
+  <!-- Google Site Verification -->
+  <meta name="google-site-verification" content="<%= typeof googleSiteVerification !== 'undefined' && googleSiteVerification ? googleSiteVerification : 'B1dVLABSRdjLxotVaRcQUIW8-vHcyDlxpkMMMNMiQSg' %>" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="website" />

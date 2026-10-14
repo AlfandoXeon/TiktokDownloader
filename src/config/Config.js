@@ -17,7 +17,8 @@ class Config {
       rateLimitWindowMs: parseInt(process.env.RATE_LIMIT_WINDOW_MS || '60000', 10),
       rateLimitMaxRequests: parseInt(process.env.RATE_LIMIT_MAX_REQUESTS || '20', 10),
       siteUrl: process.env.SITE_URL || 'https://tiktokdownloader-p7je.onrender.com',
-      googleSiteVerification: process.env.GOOGLE_SITE_VERIFICATION || '',
+      googleSiteVerification:
+        process.env.GOOGLE_SITE_VERIFICATION || 'B1dVLABSRdjLxotVaRcQUIW8-vHcyDlxpkMMMNMiQSg',
       userAgent:
         'Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/128.0.0.0 Safari/537.36'
     });
