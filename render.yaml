@@ -1,0 +1,21 @@
+services:
+  - type: web
+    name: tiktok-downloader
+    env: node
+    plan: free
+    region: singapore
+    branch: main
+    buildCommand: npm install
+    startCommand: npm start
+    autoDeploy: true
+    envVars:
+      - key: NODE_ENV
+        value: production
+      - key: TIKWM_API_BASE_URL
+        value: https://www.tikwm.com/api/
+      - key: REQUEST_TIMEOUT_MS
+        value: 20000
+      - key: RATE_LIMIT_WINDOW_MS
+        value: 60000
+      - key: RATE_LIMIT_MAX_REQUESTS
+        value: 30
