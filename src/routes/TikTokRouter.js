@@ -16,6 +16,10 @@ class TikTokRouter {
     // Web View Route
     this.#router.get('/', this.#controller.renderHome);
 
+    // Health Check Route (For Cron Jobs, Uptime Monitors & Keep-Alive)
+    this.#router.get('/health', this.#controller.getHealth);
+    this.#router.get('/api/v1/health', this.#controller.getHealth);
+
     // REST API Routes
     this.#router.post(
       '/api/v1/tiktok/extract',

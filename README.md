@@ -14,7 +14,13 @@ A lightweight and modern web application to download TikTok videos (without wate
 - **Audio Extraction**: Download background music as `.mp3`.
 - **Direct Stream Downloads**: Media is piped directly from the source CDN to the client without saving files to the server's disk (low RAM and zero disk usage).
 - **HTML Minification**: Minifies HTML output on the fly to remove comments and whitespace for faster page load times.
-- **Rate Limiting**: Built-in sliding-window rate limiter to protect the server from spam and abuse.
+- **SEO & Search Engine Ready**:
+  - `robots.txt` and `sitemap.xml` for Googlebot and search crawlers.
+  - Open Graph & Twitter Cards for social media previews (WhatsApp, Twitter, Facebook).
+  - Schema.org Structured Data (`WebApplication`, `HowTo`, `FAQPage`) for Google rich snippets.
+  - On-page semantic content (How-to guide, features, and FAQ section).
+  - Configurable `SITE_URL` and `GOOGLE_SITE_VERIFICATION` environment variables.
+  - Complete registration guide available in [PANDUAN_PENDAFTARAN_GOOGLE_SEO.md](PANDUAN_PENDAFTARAN_GOOGLE_SEO.md).
 
 ---
 
@@ -33,7 +39,13 @@ A lightweight and modern web application to download TikTok videos (without wate
 tiktok-downloader-mvc-oop/
 ├── public/
 │   ├── css/style.css               # Additional styling
-│   └── js/main.js                  # Frontend client (OOP event controller)
+│   ├── js/main.js                  # Frontend client (OOP event controller)
+│   ├── favicon.svg                 # SVG favicon
+│   ├── og-image.png                # Open Graph social preview banner (1200x630)
+│   ├── og-image.svg                # Vector banner asset
+│   ├── robots.txt                  # Search engine crawler directives
+│   ├── sitemap.xml                 # XML Sitemap for search indexing
+│   └── site.webmanifest            # Web app manifest for PWA/mobile
 ├── src/
 │   ├── config/Config.js            # Configuration singleton class
 │   ├── controllers/TikTokController.js  # Request handling & responses
@@ -48,13 +60,18 @@ tiktok-downloader-mvc-oop/
 │   │   ├── BaseExtractor.js        # Abstract extractor class
 │   │   ├── TikWmExtractor.js       # Concrete TikTok data extractor
 │   │   └── StreamService.js        # Media streaming & ZIP piping
-│   ├── views/index.ejs             # Frontend UI template
+│   ├── views/
+│   │   ├── index.ejs               # Frontend UI template
+│   │   └── 404.ejs                 # 404 Not Found error template
 │   ├── app.js                      # Express application setup
 │   └── server.js                   # Application entry point
 ├── .env.example
 ├── .gitignore
 ├── package.json
-└── README.md
+├── PANDUAN_PENDAFTARAN_GOOGLE_SEO.md # Panduan pendaftaran Google Search Console
+├── README.md
+├── RENDER.md
+└── render.yaml
 ```
 
 ---

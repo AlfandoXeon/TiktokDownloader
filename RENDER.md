@@ -67,9 +67,10 @@ If you prefer to configure the service manually through the Render web UI:
 
 ## Important Notes for Render Free Tier
 
-1. **Free Tier Cold Starts**:
+1. **Free Tier Cold Starts & Keep-Alive (Cron Job)**:
    - On the Render Free plan, the web service automatically spins down (goes to sleep) after **15 minutes of inactivity**.
-   - When a new request arrives, it takes about **30–50 seconds** to wake up (*cold start*). Subsequent requests will be fast and instant.
+   - When a new request arrives, it takes about **30–50 seconds** to wake up (*cold start*).
+   - **Tip**: You can set up a free cron job (e.g. using [cron-job.org](https://cron-job.org/) or [UptimeRobot](https://uptimerobot.com/)) to send an HTTP GET request to `https://your-app.onrender.com/health` every **10 minutes** to prevent it from going to sleep!
 2. **Stream Downloads & Memory Efficiency**:
    - This app streams videos and batch ZIP archives directly from the CDN to the client response using Node.js stream piping (`upstreamResponse.data.pipe(res)`).
    - This architecture fits within Render's Free tier **512 MB RAM** limit because files are never saved to disk or loaded fully into memory.

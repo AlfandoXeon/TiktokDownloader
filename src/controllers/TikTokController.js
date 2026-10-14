@@ -1,4 +1,5 @@
 const { ValidationError } = require('../errors/AppError');
+const config = require('../config/Config');
 
 class TikTokController {
   #extractorService;
@@ -16,7 +17,18 @@ class TikTokController {
 
   renderHome = (req, res) => {
     res.render('index', {
-      title: 'TikTok Video & Photo Downloader - No Watermark'
+      title: 'TikTok Downloader - Download Videos & Photos (No Watermark)',
+      siteUrl: config.get('siteUrl'),
+      googleSiteVerification: config.get('googleSiteVerification')
+    });
+  };
+
+  getHealth = (req, res) => {
+    return res.status(200).json({
+      status: 'ok',
+      uptime: Math.floor(process.uptime()),
+      timestamp: new Date().toISOString(),
+      service: 'tiktok-downloader'
     });
   };
 

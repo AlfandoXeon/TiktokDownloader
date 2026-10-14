@@ -1,0 +1,31 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 630" width="1200" height="630">
+  <rect width="1200" height="630" fill="#09090b"/>
+  <rect x="24" y="24" width="1152" height="582" rx="16" fill="#09090b" stroke="#27272a" stroke-width="2"/>
+  
+  <!-- Minimalist Monochrome Icon -->
+  <g transform="translate(120, 215) scale(2.8)">
+    <rect width="56" height="56" rx="12" fill="#18181b" stroke="#3f3f46" stroke-width="1.5"/>
+    <g transform="translate(12, 10)">
+      <path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-2.88 2.89 2.89 2.89 0 0 1-2.89-2.89 2.89 2.89 0 0 1 2.89-2.89c.28 0 .54.04.79.1v-3.52a6.37 6.37 0 0 0-.79-.05A6.34 6.34 0 0 0 3 15.67 6.34 6.34 0 0 0 9.34 22a6.34 6.34 0 0 0 6.34-6.33V9.05a8.16 8.16 0 0 0 4.91 1.64V7.24a4.86 4.86 0 0 1-1-.55z" fill="#FFFFFF"/>
+    </g>
+  </g>
+
+  <!-- Typography -->
+  <text x="320" y="260" font-family="system-ui, -apple-system, sans-serif" font-weight="700" font-size="52" fill="#FFFFFF" letter-spacing="-0.02em">TikTok Downloader</text>
+  <text x="320" y="315" font-family="system-ui, -apple-system, sans-serif" font-weight="400" font-size="24" fill="#A1A1AA">Watermark-Free HD Videos, Photo Carousels &amp; MP3 Audio</text>
+  
+  <!-- Classic Monochrome Badges -->
+  <g transform="translate(320, 365)">
+    <rect width="180" height="38" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+    <text x="90" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#E4E4E7" text-anchor="middle">No Watermark HD</text>
+
+    <rect x="195" width="200" height="38" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+    <text x="295" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#E4E4E7" text-anchor="middle">Photo Carousel ZIP</text>
+
+    <rect x="410" width="160" height="38" rx="8" fill="#18181b" stroke="#27272a" stroke-width="1"/>
+    <text x="490" y="24" font-family="system-ui, -apple-system, sans-serif" font-size="14" font-weight="500" fill="#E4E4E7" text-anchor="middle">Audio MP3 Extract</text>
+  </g>
+
+  <!-- Clean Subtle URL -->
+  <text x="320" y="460" font-family="monospace" font-weight="400" font-size="18" fill="#71717A">https://tiktokdownloader-p7je.onrender.com</text>
+</svg>

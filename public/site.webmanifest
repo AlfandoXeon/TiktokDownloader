@@ -1,0 +1,16 @@
+{
+  "name": "TikTok Downloader - No Watermark & Photo Carousel",
+  "short_name": "TikTok DL",
+  "description": "Download TikTok videos without watermark, save photo carousels in ZIP, and convert to MP3 audio for free.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#09090b",
+  "theme_color": "#09090b",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

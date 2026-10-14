@@ -3,9 +3,157 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  
+  <!-- Primary Meta Tags -->
   <title><%= title %></title>
+  <meta name="title" content="<%= title %>" />
+  <meta name="description" content="Free online TikTok video and photo carousel downloader. Save videos without watermark in HD, download slides as ZIP, or extract MP3 audio." />
+  <meta name="keywords" content="tiktok downloader, download tiktok video, tiktok video no watermark, tiktok photo carousel download, tiktok zip download, tiktok mp3 audio extractor, free tiktok downloader" />
+  <meta name="author" content="AlfandoXeon" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
+  <meta name="googlebot" content="index, follow" />
+  <meta name="theme-color" content="#09090b" />
+  <meta name="color-scheme" content="dark" />
+  
+  <!-- Canonical URL -->
+  <link rel="canonical" href="<%= siteUrl %>/" />
+
+  <!-- Google Site Verification (Optional: Defined via GOOGLE_SITE_VERIFICATION env) -->
+  <% if (typeof googleSiteVerification !== 'undefined' && googleSiteVerification) { %>
+  <meta name="google-site-verification" content="<%= googleSiteVerification %>" />
+  <% } %>
+
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website" />
+  <meta property="og:url" content="<%= siteUrl %>/" />
+  <meta property="og:title" content="<%= title %>" />
+  <meta property="og:description" content="Free online TikTok video and photo carousel downloader. Save videos without watermark in HD, download slides as ZIP, or extract MP3 audio." />
+  <meta property="og:image" content="<%= siteUrl %>/og-image.png" />
+  <meta property="og:image:secure_url" content="<%= siteUrl %>/og-image.png" />
+  <meta property="og:image:type" content="image/png" />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="TikTok Downloader - Download Videos & Photos (No Watermark)" />
+  <meta property="og:site_name" content="TikTok Downloader" />
+  <meta property="og:locale" content="en_US" />
+
+  <!-- Twitter Card -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content="<%= siteUrl %>/" />
+  <meta name="twitter:title" content="<%= title %>" />
+  <meta name="twitter:description" content="Free online TikTok video and photo carousel downloader. Save videos without watermark in HD, download slides as ZIP, or extract MP3 audio." />
+  <meta name="twitter:image" content="<%= siteUrl %>/og-image.png" />
+  <meta name="twitter:image:alt" content="TikTok Downloader" />
+
+  <!-- Favicon & Mobile Icons -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="alternate icon" href="/favicon.ico" />
+  <link rel="apple-touch-icon" href="/favicon.svg" />
+  <link rel="manifest" href="/site.webmanifest" />
+
+  <!-- Stylesheets & Scripts -->
   <script src="https://cdn.tailwindcss.com"></script>
   <link rel="stylesheet" href="/css/style.css" />
+
+  <!-- Structured Data / JSON-LD for Search Rich Snippets -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "WebApplication",
+        "@id": "<%= siteUrl %>/#webapp",
+        "name": "TikTok Downloader",
+        "url": "<%= siteUrl %>/",
+        "description": "Download TikTok videos without watermark, save photo carousels in ZIP, and convert to MP3 audio for free.",
+        "applicationCategory": "MultimediaApplication",
+        "operatingSystem": "All",
+        "browserRequirements": "Requires JavaScript. Requires HTML5.",
+        "offers": {
+          "@type": "Offer",
+          "price": "0",
+          "priceCurrency": "USD"
+        },
+        "author": {
+          "@type": "Person",
+          "name": "AlfandoXeon"
+        }
+      },
+      {
+        "@type": "HowTo",
+        "@id": "<%= siteUrl %>/#howto",
+        "name": "How to Download TikTok Videos Without Watermark",
+        "description": "Simple guide on downloading TikTok videos and photo slide carousels in original high quality.",
+        "step": [
+          {
+            "@type": "HowToStep",
+            "position": 1,
+            "name": "Copy Video Link",
+            "text": "Open TikTok in your app or browser, find the video or photo slide you want to download, tap Share, and select Copy Link."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 2,
+            "name": "Paste URL",
+            "text": "Return to this page, paste the copied TikTok link into the input field above, and click Download."
+          },
+          {
+            "@type": "HowToStep",
+            "position": 3,
+            "name": "Save Media",
+            "text": "Select your preferred download format: Video No Watermark (SD or HD), Photo Slides (ZIP), or Audio MP3."
+          }
+        ]
+      },
+      {
+        "@type": "FAQPage",
+        "@id": "<%= siteUrl %>/#faq",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Is this TikTok downloader free to use?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. The service is completely free with no usage limits, subscription fees, or account registrations required."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "How do I download TikTok videos without a watermark?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Copy the video link from TikTok, paste it into the search input on this page, click Download, and choose 'Download Video (No Watermark)'."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Can I download TikTok photo carousels (slides)?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Yes. You can preview all photo slides, download individual photos in full resolution, or bundle all photos together into a single ZIP archive."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Where are downloaded files saved?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "Downloaded files are automatically saved to your browser's default download directory, such as the Downloads folder on Windows, Mac, and Android, or the Files app on iOS."
+            }
+          },
+          {
+            "@type": "Question",
+            "name": "Does this service store my download history or media files?",
+            "acceptedAnswer": {
+              "@type": "Answer",
+              "text": "No. Media streams are piped directly from TikTok's servers to your browser. We do not store your files, links, or personal information on our servers."
+            }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 <body class="bg-zinc-950 text-zinc-100 min-h-screen flex flex-col antialiased selection:bg-zinc-700 selection:text-white">
 
@@ -266,6 +414,207 @@
           </div>
 
         </div>
+      </div>
+    </section>
+
+    <!-- How It Works Section -->
+    <section class="mt-14 pt-10 border-t border-zinc-800/60">
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold tracking-tight text-white mb-1">
+          How to Download TikTok Videos
+        </h2>
+        <p class="text-xs text-zinc-400">
+          Save watermark-free videos, photo slide carousels, and audio in three simple steps.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-3 gap-3">
+        <!-- Step 1 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex flex-col justify-between">
+          <div>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-zinc-800 text-zinc-300 font-mono text-xs font-semibold mb-3 border border-zinc-700/60">
+              1
+            </span>
+            <h3 class="text-sm font-medium text-white mb-1">Copy Link</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Open TikTok, choose any video or photo carousel, tap <strong>Share</strong>, and select <strong>Copy Link</strong>.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex flex-col justify-between">
+          <div>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-zinc-800 text-zinc-300 font-mono text-xs font-semibold mb-3 border border-zinc-700/60">
+              2
+            </span>
+            <h3 class="text-sm font-medium text-white mb-1">Paste URL</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Paste the copied URL into the search box above and click the <strong>Download</strong> button.
+            </p>
+          </div>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex flex-col justify-between">
+          <div>
+            <span class="inline-flex items-center justify-center w-6 h-6 rounded-md bg-zinc-800 text-zinc-300 font-mono text-xs font-semibold mb-3 border border-zinc-700/60">
+              3
+            </span>
+            <h3 class="text-sm font-medium text-white mb-1">Save Media</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Choose your format: Video without watermark (SD/HD), single or batch photo slides (ZIP), or MP3 audio.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Key Features Section -->
+    <section class="mt-12">
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold tracking-tight text-white mb-1">
+          Features
+        </h2>
+        <p class="text-xs text-zinc-400">
+          Clean, fast, and lightweight media extractor without bloated dependencies.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <!-- Feature 1 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex items-start gap-3.5">
+          <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-zinc-300 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M15 10l4.553-2.276A1 1 0 0121 8.618v6.764a1 1 0 01-1.447.894L15 14M5 18h8a2 2 0 002-2V8a2 2 0 00-2-2H5a2 2 0 00-2 2v8a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-medium text-white mb-1">Watermark-Free HD Video</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Download original TikTok videos without floating watermarks or logos, up to full high definition.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 2 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex items-start gap-3.5">
+          <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-zinc-300 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16l4.586-4.586a2 2 0 012.828 0L16 16m-2-2l1.586-1.586a2 2 0 012.828 0L20 14m-6-6h.01M6 20h12a2 2 0 002-2V6a2 2 0 00-2-2H6a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-medium text-white mb-1">Photo Carousels &amp; ZIP Archive</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Preview slide photos in an interactive carousel and download selected images or all photos in one ZIP package.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 3 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex items-start gap-3.5">
+          <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-zinc-300 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 19V6l12-3v13M9 19c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zm12-3c0 1.105-1.343 2-3 2s-3-.895-3-2 1.343-2 3-2 3 .895 3 2zM9 10l12-3"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-medium text-white mb-1">MP3 Audio Extraction</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              Extract and save the background audio or original sound track from any TikTok post in high-bitrate MP3 format.
+            </p>
+          </div>
+        </div>
+
+        <!-- Feature 4 -->
+        <div class="bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-4 flex items-start gap-3.5">
+          <div class="w-8 h-8 rounded-lg bg-zinc-800 border border-zinc-700/60 flex items-center justify-center text-zinc-300 shrink-0">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 13l4 4L19 7"/>
+            </svg>
+          </div>
+          <div>
+            <h3 class="text-sm font-medium text-white mb-1">No App or Account Needed</h3>
+            <p class="text-xs text-zinc-400 leading-relaxed">
+              100% web-based. Works in all modern browsers across desktop, Android, and iOS devices with no registration.
+            </p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section class="mt-12">
+      <div class="mb-6">
+        <h2 class="text-lg font-semibold tracking-tight text-white mb-1">
+          Frequently Asked Questions
+        </h2>
+        <p class="text-xs text-zinc-400">
+          Everything you need to know about the service.
+        </p>
+      </div>
+
+      <div class="space-y-2">
+        <details class="group bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-3.5 sm:p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition">
+          <summary class="flex items-center justify-between text-xs sm:text-sm font-medium text-white select-none">
+            <span>Is this TikTok downloader free to use?</span>
+            <span class="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-2.5 text-xs text-zinc-400 leading-relaxed">
+            Yes. The service is completely free with no download caps, hidden fees, or account registrations.
+          </p>
+        </details>
+
+        <details class="group bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-3.5 sm:p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition">
+          <summary class="flex items-center justify-between text-xs sm:text-sm font-medium text-white select-none">
+            <span>How do I download TikTok videos without a watermark?</span>
+            <span class="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-2.5 text-xs text-zinc-400 leading-relaxed">
+            Copy the video link from TikTok, paste it into the input box above, click Download, and select "Download Video (No Watermark)".
+          </p>
+        </details>
+
+        <details class="group bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-3.5 sm:p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition">
+          <summary class="flex items-center justify-between text-xs sm:text-sm font-medium text-white select-none">
+            <span>Can I download TikTok photo carousels (slides)?</span>
+            <span class="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-2.5 text-xs text-zinc-400 leading-relaxed">
+            Yes. Photo slides are automatically detected. You can download individual pictures in full resolution or select multiple slides and download them in a single ZIP archive.
+          </p>
+        </details>
+
+        <details class="group bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-3.5 sm:p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition">
+          <summary class="flex items-center justify-between text-xs sm:text-sm font-medium text-white select-none">
+            <span>Where are the downloaded files saved?</span>
+            <span class="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-2.5 text-xs text-zinc-400 leading-relaxed">
+            All files are saved directly into your browser's default download folder (e.g., the Downloads folder on Windows, macOS, and Android, or the Files app on iOS).
+          </p>
+        </details>
+
+        <details class="group bg-zinc-900/40 border border-zinc-800/80 rounded-xl p-3.5 sm:p-4 [&_summary::-webkit-details-marker]:hidden cursor-pointer transition">
+          <summary class="flex items-center justify-between text-xs sm:text-sm font-medium text-white select-none">
+            <span>Does this service store my download history or media files?</span>
+            <span class="ml-2 text-zinc-500 group-open:rotate-180 transition-transform">
+              <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 9l-7 7-7-7"/></svg>
+            </span>
+          </summary>
+          <p class="mt-2.5 text-xs text-zinc-400 leading-relaxed">
+            No. The service streams media directly from source servers to your device. We do not store user files, URLs, or personal history on our servers.
+          </p>
+        </details>
       </div>
     </section>
   </main>

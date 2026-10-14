@@ -14,6 +14,15 @@ class ErrorMiddleware {
       console.error(`[ErrorMiddleware] ${err.name}: ${err.message}`);
     }
 
+    // Render 404 HTML page for browser requests
+    const isApiRequest = req.originalUrl.startsWith('/api') || req.xhr;
+    if (statusCode === 404 && !isApiRequest && req.accepts('html')) {
+      return res.status(404).render('404', {
+        title: '404 - Page Not Found | TikTok Downloader',
+        url: req.originalUrl
+      });
+    }
+
     res.status(statusCode).json({
       success: false,
       error: {

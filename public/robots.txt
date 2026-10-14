@@ -1,0 +1,9 @@
+# Robots.txt for TikTok Downloader
+# https://tiktokdownloader-p7je.onrender.com/
+
+User-agent: *
+Allow: /
+Disallow: /api/
+
+# Sitemap location
+Sitemap: https://tiktokdownloader-p7je.onrender.com/sitemap.xml
