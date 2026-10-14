@@ -1,6 +1,6 @@
 /**
- * Frontend Client TikTok Downloader (Mendukung Video & Carousel Foto)
- * Menggunakan pendekatan OOP (Object-Oriented Programming)
+ * Frontend Client TikTok Downloader (Supports Videos & Photo Carousels)
+ * Built with Object-Oriented Programming (OOP)
  */
 class TikTokDownloaderClient {
   constructor() {
@@ -82,14 +82,14 @@ class TikTokDownloaderClient {
         this.urlInput.focus();
       }
     } catch {
-      this.showAlert('Gagal membaca clipboard. Silakan tempel tautan secara manual (Ctrl+V).', 'error');
+      this.showAlert('Unable to read clipboard. Please paste the link manually (Ctrl+V).', 'error');
     }
   }
 
   setLoading(isLoading) {
     this.submitBtn.disabled = isLoading;
     if (isLoading) {
-      this.submitBtnText.textContent = 'Memproses...';
+      this.submitBtnText.textContent = 'Processing...';
       this.submitSpinner.classList.remove('hidden');
     } else {
       this.submitBtnText.textContent = 'Download';
@@ -139,7 +139,7 @@ class TikTokDownloaderClient {
 
     const rawUrl = this.urlInput.value.trim();
     if (!rawUrl) {
-      this.showAlert('Masukkan tautan video atau foto TikTok.');
+      this.showAlert('Please enter a TikTok video or photo link.');
       return;
     }
 
@@ -157,7 +157,7 @@ class TikTokDownloaderClient {
       const payload = await response.json();
 
       if (!response.ok || !payload.success) {
-        throw new Error(payload?.error?.message || 'Gagal memproses tautan TikTok.');
+        throw new Error(payload?.error?.message || 'Failed to process TikTok link.');
       }
 
       this.renderResult(rawUrl, payload.data);
@@ -177,7 +177,7 @@ class TikTokDownloaderClient {
       data.author.avatarUrl || 'https://ui-avatars.com/api/?name=TT&background=18181b&color=ffffff';
     this.authorNickname.textContent = data.author.nickname || 'TikTok User';
     this.authorUsername.textContent = `@${data.author.uniqueId}`;
-    this.videoTitle.textContent = data.title || 'Tidak ada deskripsi.';
+    this.videoTitle.textContent = data.title || 'No description available.';
 
     // Metrics
     this.statPlays.textContent = this.formatNumber(data.stats.plays);
@@ -188,16 +188,16 @@ class TikTokDownloaderClient {
     const encodedUrl = encodeURIComponent(originalUrl);
 
     if (data.type === 'photo' && Array.isArray(data.images) && data.images.length > 0) {
-      // TAMPILAN FOTO CAROUSEL
+      // PHOTO CAROUSEL VIEW
       this.videoPreviewWrapper.classList.add('hidden');
       this.videoActions.classList.add('hidden');
       this.photoCarouselWrapper.classList.remove('hidden');
       this.photoActions.classList.remove('hidden');
 
-      this.mediaBadge.textContent = `${data.images.length} Foto`;
+      this.mediaBadge.textContent = `${data.images.length} Photos`;
       this.initPhotoCarousel();
     } else {
-      // TAMPILAN VIDEO
+      // VIDEO VIEW
       this.photoCarouselWrapper.classList.add('hidden');
       this.photoActions.classList.add('hidden');
       this.videoPreviewWrapper.classList.remove('hidden');
@@ -221,9 +221,8 @@ class TikTokDownloaderClient {
 
   initPhotoCarousel() {
     this.activePhotoIndex = 0;
-    const totalPhotos = this.currentData.images.length;
 
-    // Default: Semua foto terpilih
+    // Default: All photos selected
     this.selectedPhotoIndices = new Set(this.currentData.images.map((_, i) => i));
 
     this.updateCarouselView();
@@ -267,7 +266,7 @@ class TikTokDownloaderClient {
     const encodedUrl = encodeURIComponent(this.currentUrl);
     this.btnDownloadCurrentPhoto.href = `/api/v1/tiktok/download?url=${encodedUrl}&quality=photo&index=${this.activePhotoIndex}`;
 
-    // Highlight thumbnail aktif di grid
+    // Highlight active thumbnail in grid
     const allCards = this.photoGrid.querySelectorAll('.photo-thumb-card');
     allCards.forEach((card, idx) => {
       if (idx === this.activePhotoIndex) {
@@ -288,10 +287,10 @@ class TikTokDownloaderClient {
       card.className =
         'photo-thumb-card relative group aspect-square rounded-lg overflow-hidden border border-zinc-800 bg-zinc-900 cursor-pointer transition';
 
-      // Gambar thumbnail
+      // Thumbnail Image
       const img = document.createElement('img');
       img.src = imgUrl;
-      img.alt = `Foto ${idx + 1}`;
+      img.alt = `Photo ${idx + 1}`;
       img.className = 'w-full h-full object-cover select-none';
 
       // Gradient overlay
@@ -319,21 +318,21 @@ class TikTokDownloaderClient {
 
       checkboxWrapper.appendChild(checkbox);
 
-      // Label nomor foto
+      // Photo index badge
       const badge = document.createElement('span');
       badge.className = 'absolute bottom-1 left-1.5 text-[10px] font-mono font-bold text-zinc-200 select-none';
       badge.textContent = `#${idx + 1}`;
 
-      // Tombol download satuan
+      // Single download button
       const downloadBtn = document.createElement('a');
       downloadBtn.href = `/api/v1/tiktok/download?url=${encodedUrl}&quality=photo&index=${idx}`;
-      downloadBtn.title = `Download Foto #${idx + 1}`;
+      downloadBtn.title = `Download Photo #${idx + 1}`;
       downloadBtn.className =
         'absolute bottom-1 right-1.5 z-10 w-5 h-5 rounded bg-zinc-800/90 hover:bg-white hover:text-black text-zinc-300 flex items-center justify-center text-[10px] transition';
       downloadBtn.innerHTML = '&#8595;';
       downloadBtn.addEventListener('click', (e) => e.stopPropagation());
 
-      // Klik thumbnail untuk membuka di preview carousel
+      // Click card to open in main preview
       card.addEventListener('click', () => this.setActivePhoto(idx));
 
       card.appendChild(img);
@@ -354,7 +353,7 @@ class TikTokDownloaderClient {
       this.selectedPhotoIndices.clear();
     }
 
-    // Update semua input checkbox di grid
+    // Update all checkbox inputs in grid
     const checkboxes = this.photoGrid.querySelectorAll('input[type="checkbox"]');
     checkboxes.forEach((cb) => (cb.checked = isChecked));
 
@@ -365,21 +364,21 @@ class TikTokDownloaderClient {
     const total = this.currentData.images.length;
     const selectedCount = this.selectedPhotoIndices.size;
 
-    this.photoSelectionStatus.textContent = `${selectedCount} / ${total} foto`;
+    this.photoSelectionStatus.textContent = `${selectedCount} / ${total} selected`;
 
-    // Update status Select All Checkbox
+    // Update Select All Checkbox state
     this.selectAllCheckbox.checked = selectedCount === total;
     this.selectAllCheckbox.indeterminate = selectedCount > 0 && selectedCount < total;
 
-    // Update teks & status tombol download terpilih
-    this.btnDownloadSelectedText.textContent = `Download Foto Terpilih (${selectedCount}) - ZIP`;
+    // Update batch button text and state
+    this.btnDownloadSelectedText.textContent = `Download Selected (${selectedCount}) - ZIP`;
     this.btnDownloadSelectedZip.disabled = selectedCount === 0;
   }
 
   handleDownloadSelectedZip() {
     const count = this.selectedPhotoIndices.size;
     if (count === 0) {
-      this.showAlert('Pilih minimal satu foto untuk diunduh.', 'error');
+      this.showAlert('Please select at least one photo to download.', 'error');
       return;
     }
 
@@ -390,7 +389,7 @@ class TikTokDownloaderClient {
     const encodedUrl = encodeURIComponent(this.currentUrl);
     const downloadZipUrl = `/api/v1/tiktok/download-zip?url=${encodedUrl}&indices=${sortedIndices}`;
 
-    // Arahkan browser untuk mengunduh berkas ZIP
+    // Direct browser to download the ZIP file
     window.location.href = downloadZipUrl;
   }
 }

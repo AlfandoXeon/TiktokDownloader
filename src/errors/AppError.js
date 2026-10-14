@@ -10,25 +10,25 @@ class AppError extends Error {
 }
 
 class ValidationError extends AppError {
-  constructor(message = 'Input tidak valid.') {
+  constructor(message = 'Invalid input provided.') {
     super(message, 400, 'VALIDATION_ERROR');
   }
 }
 
 class NotFoundError extends AppError {
-  constructor(message = 'Video TikTok tidak ditemukan atau bersifat privat.') {
-    super(message, 404, 'VIDEO_NOT_FOUND');
+  constructor(message = 'TikTok post was not found or the account is private.') {
+    super(message, 404, 'POST_NOT_FOUND');
   }
 }
 
 class UpstreamError extends AppError {
-  constructor(message = 'Gagal mengambil data dari server upstream TikTok.') {
+  constructor(message = 'Failed to fetch media from upstream TikTok provider.') {
     super(message, 502, 'UPSTREAM_ERROR');
   }
 }
 
 class RateLimitError extends AppError {
-  constructor(message = 'Terlalu banyak permintaan. Silakan coba beberapa saat lagi.') {
+  constructor(message = 'Too many requests. Please slow down and try again in a few moments.') {
     super(message, 429, 'RATE_LIMIT_EXCEEDED');
   }
 }

@@ -21,7 +21,7 @@
         <span class="font-semibold text-base tracking-tight text-white">TikTok Downloader</span>
       </a>
       <span class="text-xs text-zinc-400 bg-zinc-900 border border-zinc-800 px-3 py-1 rounded-full">
-        Videos & Photos (Carousel)
+        Videos & Photo Carousels
       </span>
     </div>
   </header>
@@ -34,7 +34,7 @@
         Download TikTok Videos & Photos
       </h1>
       <p class="text-zinc-400 text-sm sm:text-base max-w-md mx-auto">
-        Save videos without watermark, download photo slide carousels (batch ZIP or single photos), or extract MP3 audio.
+        Save videos without watermark in high quality, download photo slide carousels (batch ZIP or single photos), or extract MP3 audio.
       </p>
     </section>
 
@@ -45,7 +45,7 @@
           <input
             type="url"
             id="tiktokUrlInput"
-            placeholder="Paste TikTok video or photo slide link here..."
+            placeholder="Paste TikTok video or photo carousel link here..."
             required
             class="w-full bg-zinc-950 border border-zinc-800 focus:border-zinc-500 focus:ring-1 focus:ring-zinc-500 rounded-xl pl-4 pr-20 py-3.5 text-sm text-white placeholder-zinc-500 outline-none transition"
           />
@@ -106,7 +106,7 @@
                 type="button"
                 id="carouselPrevBtn"
                 class="absolute left-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-900/80 hover:bg-zinc-800 text-white flex items-center justify-center border border-zinc-700/80 backdrop-blur transition select-none shadow"
-                title="Foto Sebelumnya"
+                title="Previous Photo"
               >
                 &#10094;
               </button>
@@ -114,7 +114,7 @@
                 type="button"
                 id="carouselNextBtn"
                 class="absolute right-2 top-1/2 -translate-y-1/2 w-8 h-8 rounded-full bg-zinc-900/80 hover:bg-zinc-800 text-white flex items-center justify-center border border-zinc-700/80 backdrop-blur transition select-none shadow"
-                title="Foto Berikutnya"
+                title="Next Photo"
               >
                 &#10095;
               </button>
@@ -133,7 +133,7 @@
               <svg class="w-3.5 h-3.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                 <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
               </svg>
-              <span>Download Foto Ini (HD)</span>
+              <span>Download This Photo (HD)</span>
             </a>
           </div>
 
@@ -219,7 +219,7 @@
                   class="w-4 h-4 rounded bg-zinc-800 border-zinc-700 text-zinc-300 accent-white cursor-pointer"
                   checked
                 />
-                <span>Pilih Semua Foto</span>
+                <span>Select All Photos</span>
               </label>
               <span id="photoSelectionStatus" class="font-mono text-zinc-400"></span>
             </div>
@@ -229,7 +229,7 @@
               id="photoGrid"
               class="grid grid-cols-3 sm:grid-cols-4 gap-2 max-h-48 overflow-y-auto p-2 rounded-xl bg-zinc-950/40 border border-zinc-800/60"
             >
-              <!-- Dibuat dinamis oleh JavaScript -->
+              <!-- Populated dynamically by JavaScript -->
             </div>
 
             <!-- Batch Download Action Buttons -->
@@ -242,7 +242,7 @@
                 <svg class="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"/>
                 </svg>
-                <span id="btnDownloadSelectedText">Download Foto Terpilih (ZIP)</span>
+                <span id="btnDownloadSelectedText">Download Selected Photos (ZIP)</span>
               </button>
 
               <div class="grid grid-cols-2 gap-2">
@@ -251,7 +251,7 @@
                   href="#"
                   class="py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 text-xs font-medium flex items-center justify-center gap-1.5 transition text-center"
                 >
-                  <span>Download Semua (ZIP)</span>
+                  <span>Download All (ZIP)</span>
                 </a>
 
                 <a
@@ -259,7 +259,7 @@
                   href="#"
                   class="py-2.5 px-3 rounded-xl bg-zinc-800 hover:bg-zinc-700 text-white border border-zinc-700 text-xs font-medium flex items-center justify-center gap-1.5 transition text-center"
                 >
-                  <span>Download Musik (MP3)</span>
+                  <span>Download Audio (MP3)</span>
                 </a>
               </div>
             </div>
@@ -270,11 +270,27 @@
     </section>
   </main>
 
-  <!-- Footer -->
-  <footer class="border-t border-zinc-900 py-6 text-center text-xs text-zinc-500">
-    <p>Simple and fast TikTok video & photo downloader. Free for personal use.</p>
+  <!-- Footer with GitHub Repository Link -->
+  <footer class="border-t border-zinc-900 py-8 text-center text-xs text-zinc-500">
+    <div class="max-w-4xl mx-auto px-4 flex flex-col items-center gap-3">
+      <a
+        href="https://github.com/AlfandoXeon/TiktokDownloader"
+        target="_blank"
+        rel="noopener noreferrer"
+        class="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-zinc-900 hover:bg-zinc-800 border border-zinc-800 hover:border-zinc-700 text-zinc-300 hover:text-white transition group shadow-sm"
+      >
+        <svg class="w-4 h-4 fill-current text-zinc-400 group-hover:text-white transition" viewBox="0 0 24 24">
+          <path fill-rule="evenodd" clip-rule="evenodd" d="M12 2C6.477 2 2 6.484 2 12.017c0 4.425 2.865 8.18 6.839 9.504.5.092.682-.217.682-.483 0-.237-.008-.868-.013-1.703-2.782.605-3.369-1.343-3.369-1.343-.454-1.158-1.11-1.466-1.11-1.466-.908-.62.069-.608.069-.608 1.003.07 1.53 1.032 1.53 1.032.892 1.53 2.341 1.088 2.91.832.092-.647.35-1.088.636-1.338-2.22-.253-4.555-1.113-4.555-4.951 0-1.093.39-1.988 1.029-2.688-.103-.253-.446-1.272.098-2.65 0 0 .84-.27 2.75 1.026A9.564 9.564 0 0112 6.844c.85.004 1.705.115 2.504.337 1.909-1.296 2.747-1.027 2.747-1.027.546 1.379.202 2.398.1 2.651.64.7 1.028 1.595 1.028 2.688 0 3.848-2.339 4.695-4.566 4.943.359.309.678.92.678 1.855 0 1.338-.012 2.419-.012 2.747 0 .268.18.58.688.482A10.019 10.019 0 0022 12.017C22 6.484 17.522 2 12 2z"/>
+        </svg>
+        <span class="font-medium text-xs">Open Source on GitHub</span>
+        <span class="text-zinc-500 text-[11px]">— Want to contribute?</span>
+      </a>
+      <p class="text-zinc-400 max-w-md">
+        Free and open-source TikTok video & photo carousel downloader. Contributions and improvements are welcome!
+      </p>
+    </div>
   </footer>
 
-  <script src="/js/main.js?v=2.0"></script>
+  <script src="/js/main.js?v=2.1"></script>
 </body>
 </html>

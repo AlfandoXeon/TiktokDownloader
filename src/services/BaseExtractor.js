@@ -14,7 +14,7 @@ class BaseExtractor {
    */
   validateTikTokUrl(rawUrl) {
     if (!rawUrl || typeof rawUrl !== 'string') {
-      throw new ValidationError('URL TikTok wajib diisi.');
+      throw new ValidationError('TikTok URL is required.');
     }
 
     const trimmed = rawUrl.trim();
@@ -22,7 +22,7 @@ class BaseExtractor {
     try {
       parsedUrl = new URL(trimmed);
     } catch {
-      throw new ValidationError('Format URL tidak valid. Pastikan menyertakan http:// atau https://');
+      throw new ValidationError('Invalid URL format. Please include http:// or https://');
     }
 
     const allowedHosts = [
@@ -38,7 +38,7 @@ class BaseExtractor {
     );
 
     if (!isAllowed) {
-      throw new ValidationError('Bukan URL TikTok yang valid. Gunakan tautan dari tiktok.com atau vt.tiktok.com.');
+      throw new ValidationError('Invalid TikTok URL. Please use a link from tiktok.com or vt.tiktok.com.');
     }
 
     return parsedUrl.toString();

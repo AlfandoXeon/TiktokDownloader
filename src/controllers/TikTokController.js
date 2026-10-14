@@ -38,7 +38,7 @@ class TikTokController {
     try {
       const { url, quality = 'sd', index = '0' } = req.query;
       if (!url) {
-        throw new ValidationError('Parameter query "url" wajib disertakan.');
+        throw new ValidationError('Query parameter "url" is required.');
       }
 
       const videoModel = await this.#extractorService.extract(url);
@@ -56,7 +56,7 @@ class TikTokController {
         } else {
           const photoIndex = Math.max(0, parseInt(index, 10) || 0);
           if (!videoModel.images[photoIndex]) {
-            throw new ValidationError(`Foto nomor ${photoIndex + 1} tidak ditemukan.`);
+            throw new ValidationError(`Photo #${photoIndex + 1} was not found.`);
           }
           targetStreamUrl = videoModel.images[photoIndex];
           contentType = 'image/jpeg';
@@ -98,13 +98,13 @@ class TikTokController {
     try {
       const { url, indices } = req.query;
       if (!url) {
-        throw new ValidationError('Parameter query "url" wajib disertakan.');
+        throw new ValidationError('Query parameter "url" is required.');
       }
 
       const videoModel = await this.#extractorService.extract(url);
 
       if (!videoModel.isPhoto || videoModel.images.length === 0) {
-        throw new ValidationError('Postingan ini bukan carousel foto TikTok.');
+        throw new ValidationError('This post is not a TikTok photo carousel.');
       }
 
       let selectedIndices = [];
@@ -118,7 +118,7 @@ class TikTokController {
       }
 
       if (selectedIndices.length === 0) {
-        throw new ValidationError('Pilih minimal satu foto untuk diunduh.');
+        throw new ValidationError('Please select at least one photo to download.');
       }
 
       const files = selectedIndices.map((idx) => ({

@@ -8,7 +8,7 @@ class ErrorMiddleware {
     const errorCode = isOperational ? err.errorCode : 'INTERNAL_SERVER_ERROR';
     const message = isOperational
       ? err.message
-      : 'Terjadi kesalahan internal pada server.';
+      : 'An internal server error occurred.';
 
     if (!isOperational || config.get('nodeEnv') === 'development') {
       console.error(`[ErrorMiddleware] ${err.name}: ${err.message}`);

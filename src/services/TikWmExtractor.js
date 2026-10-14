@@ -40,14 +40,14 @@ class TikWmExtractor extends BaseExtractor {
       response = await this.#httpClient.post('', params.toString());
     } catch (error) {
       throw new UpstreamError(
-        `Koneksi ke provider ekstraktor gagal: ${error.message || 'Timeout / Network Error'}`
+        `Failed to connect to extractor provider: ${error.message || 'Timeout / Network Error'}`
       );
     }
 
     const payload = response.data;
     if (!payload || payload.code !== 0 || !payload.data) {
       throw new NotFoundError(
-        payload?.msg || 'Postingan tidak ditemukan. Pastikan tautan benar dan akun tidak diprivat.'
+        payload?.msg || 'TikTok post not found. Please make sure the link is correct and the account is not private.'
       );
     }
 

@@ -53,7 +53,7 @@ class App {
 
   #configureErrorHandling() {
     this.#expressApp.use((req, res, next) => {
-      next(new AppError(`Endpoint ${req.originalUrl} tidak ditemukan.`, 404, 'ROUTE_NOT_FOUND'));
+      next(new AppError(`Endpoint ${req.originalUrl} was not found.`, 404, 'ROUTE_NOT_FOUND'));
     });
 
     this.#expressApp.use(ErrorMiddleware.handle);

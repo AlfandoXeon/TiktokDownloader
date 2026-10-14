@@ -14,7 +14,7 @@ class StreamService {
    */
   async pipeMediaStream(mediaUrl, filename, contentType, res) {
     if (!mediaUrl) {
-      throw new ValidationError('URL stream media tidak tersedia.');
+      throw new ValidationError('Media stream URL is unavailable.');
     }
 
     let upstreamResponse;
@@ -30,7 +30,7 @@ class StreamService {
         }
       });
     } catch (error) {
-      throw new UpstreamError(`Gagal mengunduh stream media: ${error.message}`);
+      throw new UpstreamError(`Failed to download media stream: ${error.message}`);
     }
 
     const contentLength = upstreamResponse.headers['content-length'];
@@ -43,7 +43,7 @@ class StreamService {
     upstreamResponse.data.on('error', (streamErr) => {
       console.error('[StreamService] Stream error:', streamErr.message);
       if (!res.headersSent) {
-        res.status(502).json({ success: false, message: 'Stream terputus dari server asal.' });
+        res.status(502).json({ success: false, message: 'Stream interrupted from origin server.' });
       } else {
         res.end();
       }
@@ -60,7 +60,7 @@ class StreamService {
    */
   async pipeZipStream(files, zipFilename, res) {
     if (!files || !Array.isArray(files) || files.length === 0) {
-      throw new ValidationError('Tidak ada file yang dipilih untuk diunduh.');
+      throw new ValidationError('No files selected for download.');
     }
 
     const archive = new ZipArchive({
@@ -73,7 +73,7 @@ class StreamService {
     archive.on('error', (err) => {
       console.error('[StreamService] Zip archive error:', err.message);
       if (!res.headersSent) {
-        res.status(500).json({ success: false, message: 'Gagal membuat arsip ZIP.' });
+        res.status(500).json({ success: false, message: 'Failed to generate ZIP archive.' });
       } else {
         res.end();
       }
@@ -96,7 +96,7 @@ class StreamService {
 
         archive.append(response.data, { name: file.filename });
       } catch (err) {
-        console.error(`[StreamService] Gagal menambahkan berkas ${file.filename} ke ZIP:`, err.message);
+        console.error(`[StreamService] Failed to append file ${file.filename} to ZIP:`, err.message);
       }
     }
 

@@ -1,65 +1,125 @@
-# TikTok Downloader No Watermark (Node.js MVC + OOP)
+# TikTok Downloader (Videos & Photo Carousels)
 
-Aplikasi web untuk mengunduh video TikTok tanpa watermark (HD/SD) beserta audio (MP3) menggunakan arsitektur **Model-View-Controller (MVC)** dan paradigma **Object-Oriented Programming (OOP)** di Node.js.
+A lightweight and modern web application to download TikTok videos (without watermark) and photo slide carousels, built with **Node.js**, **Express**, **MVC architecture**, and **Object-Oriented Programming (OOP)**.
 
-## Struktur Direktori (MVC + Service Layer)
+---
+
+## Features
+
+- **No-Watermark Videos**: Download TikTok videos in SD or HD quality.
+- **Photo Carousel / Slide Support**:
+  - Interactive photo slider with preview navigation.
+  - Download individual photos (`.jpeg`).
+  - Download selected photos or all photos bundled in a `.zip` archive.
+- **Audio Extraction**: Download background music as `.mp3`.
+- **Direct Stream Downloads**: Media is piped directly from the source CDN to the client without saving files to the server's disk (low RAM and zero disk usage).
+- **HTML Minification**: Minifies HTML output on the fly to remove comments and whitespace for faster page load times.
+- **Rate Limiting**: Built-in sliding-window rate limiter to protect the server from spam and abuse.
+
+---
+
+## Tech Stack
+
+- **Runtime**: [Node.js](https://nodejs.org/) (v18+ recommended)
+- **Backend**: Express.js, EJS (Template Engine)
+- **Frontend**: Vanilla JavaScript (OOP), Tailwind CSS
+- **Utilities**: Axios, Archiver (ZIP streaming), HTML Minifier Terser
+
+---
+
+## Project Structure
 
 ```text
 tiktok-downloader-mvc-oop/
 ├── public/
-│   ├── css/
-│   │   └── style.css          # Custom styling tambahan
-│   └── js/
-│       └── main.js            # Frontend OOP Client (UI & Fetch Controller)
+│   ├── css/style.css               # Additional styling
+│   └── js/main.js                  # Frontend client (OOP event controller)
 ├── src/
-│   ├── config/
-│   │   └── Config.js          # Singleton Class untuk manajemen konfigurasi & env
-│   ├── controllers/
-│   │   └── TikTokController.js # Controller Class untuk request HTTP & View rendering
-│   ├── errors/
-│   │   └── AppError.js        # Custom Error Class Hierarchy (Inheritance)
+│   ├── config/Config.js            # Configuration singleton class
+│   ├── controllers/TikTokController.js  # Request handling & responses
+│   ├── errors/AppError.js          # Custom error hierarchy
 │   ├── middlewares/
-│   │   ├── ErrorMiddleware.js # Global Error Handling Middleware Class
-│   │   └── RateLimiter.js     # In-Memory Sliding Window Rate Limiter Class
-│   ├── models/
-│   │   └── TikTokVideo.js     # Domain Model / Entity Class (Encapsulation)
-│   ├── routes/
-│   │   └── TikTokRouter.js    # Routing Class untuk Web View & REST API
+│   │   ├── ErrorMiddleware.js      # Global error handler
+│   │   ├── HtmlMinifierMiddleware.js# HTML output minifier
+│   │   └── RateLimiter.js          # In-memory rate limiter
+│   ├── models/TikTokVideo.js       # Media domain model entity
+│   ├── routes/TikTokRouter.js      # Application route definitions
 │   ├── services/
-│   │   ├── BaseExtractor.js   # Abstract Base Class untuk Provider Extractor
-│   │   ├── TikWmExtractor.js  # Concrete Extractor Class (Inheritance & Polymorphism)
-│   │   └── StreamService.js   # Stream Piping Service untuk Direct Download
-│   ├── views/
-│   │   └── index.ejs          # Tampilan Web (View Layer) dengan Tailwind CSS
-│   ├── app.js                 # Core Application Class
-│   └── server.js              # Entry Point Server
+│   │   ├── BaseExtractor.js        # Abstract extractor class
+│   │   ├── TikWmExtractor.js       # Concrete TikTok data extractor
+│   │   └── StreamService.js        # Media streaming & ZIP piping
+│   ├── views/index.ejs             # Frontend UI template
+│   ├── app.js                      # Express application setup
+│   └── server.js                   # Application entry point
 ├── .env.example
+├── .gitignore
 ├── package.json
 └── README.md
 ```
 
-## Prinsip OOP yang Diterapkan
+---
 
-1. **Encapsulation**: Penggunaan private fields (`#`) pada class di Node.js modern untuk melindungi state internal (misal pada `TikTokVideo`, `Config`, `RateLimiter`).
-2. **Inheritance**: `TikWmExtractor` mewarisi kontrak dari `BaseExtractor`, dan `ValidationError` / `UpstreamError` mewarisi dari `AppError`.
-3. **Polymorphism**: Controller hanya berkomunikasi dengan interface `extract(url)` tanpa perlu tahu detail implementasi provider di balik layar.
-4. **Single Responsibility Principle (SRP)**: Pemisahan tegas antara HTTP handling (`TikTokController`), struktur data (`TikTokVideo`), ekstraksi metadata (`TikWmExtractor`), dan streaming binary file (`StreamService`).
+## Getting Started
 
-## Cara Menjalankan
+### 1. Prerequisites
 
-1. Ekstrak file ZIP ini.
-2. Buka terminal di dalam folder proyek, lalu instal dependensi:
+Ensure you have **Node.js** (v18.0.0 or higher) and **npm** installed on your machine.
+
+Verify your installation:
+```bash
+node -v
+npm -v
+```
+
+### 2. Installation
+
+1. Clone or download this repository.
+2. Open your terminal in the project directory and install dependencies:
    ```bash
    npm install
    ```
-3. Salin file `.env.example` menjadi `.env` (opsional, sudah ada nilai default):
-   ```bash
-   cp .env.example .env
-   ```
-4. Jalankan server:
-   ```bash
-   npm run dev
-   # atau
-   npm start
-   ```
-5. Buka browser dan akses: `http://localhost:3000`
+
+### 3. Environment Variables (Optional)
+
+Copy the `.env.example` file to `.env`:
+```bash
+# On Windows PowerShell:
+Copy-Item .env.example .env
+
+# On Linux / macOS / Git Bash:
+cp .env.example .env
+```
+*Note: The application has built-in defaults, so this step is optional for local development.*
+
+### 4. Running the Application
+
+- **Development Mode** (with automatic restart on file changes):
+  ```bash
+  npm run dev
+  ```
+
+- **Production Mode**:
+  ```bash
+  npm start
+  ```
+
+Once started, open your web browser and navigate to:
+```text
+http://localhost:3000
+```
+
+---
+
+## How to Use
+
+1. Copy any public TikTok link (either a **Video** or a **Photo Slide Carousel**).
+2. Paste the URL into the input field and click **Download**.
+3. Choose your download option:
+   - For **Videos**: Click to download No Watermark (SD), HD, or MP3 audio.
+   - For **Photos**: Use the carousel slider to preview photos, select specific photos using the checkboxes, and download them individually or as a `.zip` archive.
+
+---
+
+## License
+
+This project is open-source and available under the [MIT License](LICENSE).
